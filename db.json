@@ -38,6 +38,20 @@
       "comments": "asd",
       "genre": "Comédia",
       "id": 5
+    },
+    {
+      "name": "YOU",
+      "status": "watching",
+      "comments": "Stalker",
+      "genre": "Drama",
+      "id": 6
+    },
+    {
+      "name": "",
+      "status": "watched",
+      "comments": "",
+      "genre": "Comédia",
+      "id": 7
     }
   ],
   "genres": [

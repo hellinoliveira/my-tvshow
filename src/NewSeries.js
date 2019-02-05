@@ -20,7 +20,7 @@ class NewSeries extends Component {
     }
     componentDidMount() {
         this.setState({ isLoading: true })
-        apis.loadGenders()
+        apis.loadGenres()
             .then((res) => {
                 this.setState({
                     isLoading: false,

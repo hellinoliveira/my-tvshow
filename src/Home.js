@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-
-import apis from './Api'
+import {
+    Link
+} from 'react-router-dom'
+import api from './Api'
 
 class Home extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             genres: [],
             isLoading: false
@@ -14,7 +15,8 @@ class Home extends Component {
 
     componentDidMount() {
         this.setState({ isLoading: true })
-        apis.loadGenders()
+
+        api.loadGenres()
             .then((res) => {
                 this.setState({
                     isLoading: false,
@@ -23,9 +25,9 @@ class Home extends Component {
             })
     }
 
-    renderGenderLink(genre) {
+    renderGenreLink(genre) {
         return (
-            <span>&nbsp;<a href=''>{genre}</a>&nbsp;</span>
+            <span key={genre}>&nbsp;<Link to={`/series/${genre}`}>{genre}</Link></span>
         )
     }
 
@@ -36,30 +38,36 @@ class Home extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
-                                {/* <h1><img src="images/logo.png" /></h1> */}
+                                <h1><img src="images/logo.png" alt="" /></h1>
                                 <p>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</p>
                             </div>
                         </div>
                     </div>
                 </section>
-
                 <section>
-                    {
-                        this.state.isLoading &&
-                        <span>Aguarde, carregando...</span>
-                    }
-                    {
-                        !this.state.isLoading &&
-                        <div>
-                            Lista de Gêneros:
-                            {this.state.genres.map(this.renderGenderLink)}
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                {
+                                    this.state.isLoading &&
+                                    <center>Carregando...</center>
+                                }
+                                {
+                                    !this.state.isLoading &&
+                                    <div>
+                                        Ver séries do gênero:
+                            {
+                                            (this.state.genres.map(this.renderGenreLink))
+                                        }
+                                    </div>
+                                }
+                            </div>
                         </div>
-                    }
+                    </div>
                 </section>
             </div>
         )
     }
-
 }
 
 export default Home

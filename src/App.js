@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './Home'
+import Series from './Series'
 import NewSeries from './NewSeries';
 
 
@@ -37,6 +38,7 @@ class App extends Component {
           </nav>
           <Route exact path='/' component={Home} />
           <Route exact path='/newSeries' component={NewSeries} />
+          <Route path='/series/:genre' component={Series} />
         </div>
       </Router>
     );
