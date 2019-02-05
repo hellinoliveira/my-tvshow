@@ -7,6 +7,7 @@ import {
 import Home from './Home'
 import Series from './Series'
 import NewSeries from './NewSeries';
+import EditSeries from './EditSeries';
 
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
             <div className="container">
               <div className="navbar-header page-scroll">
                 <a className="navbar-brand page-scroll" href="#page-top">
-                  <img src="images/logo.png" height="30" />
+                  <img src="/images/logo.png" height="30" />
                 </a>
               </div>
 
@@ -38,6 +39,7 @@ class App extends Component {
           </nav>
           <Route exact path='/' component={Home} />
           <Route exact path='/newSeries' component={NewSeries} />
+          <Route path='/series-edit/:id' component={EditSeries} />
           <Route path='/series/:genre' component={Series} />
         </div>
       </Router>
